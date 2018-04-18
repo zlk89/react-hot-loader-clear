@@ -6,7 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <h1>
-        Hello, 2.<br />
+        Hello, 21.<br />
         <input type='number'/>
         <FormControl inputRef={console.log} defaultValue="Write me" />
       </h1>
