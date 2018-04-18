@@ -4,11 +4,10 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  devServer: {
-    hot: true,
-  },
   mode: "development",
-  entry: ['webpack-dev-server/client?http://localhost:3000/', './src/index'],
+  entry: {
+    app: ['./src/index', 'webpack-hot-middleware/client'],
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -22,5 +21,9 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin(), new webpack.NamedModulesPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 }
